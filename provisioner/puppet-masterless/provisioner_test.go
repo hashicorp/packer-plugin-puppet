@@ -12,7 +12,6 @@ import (
 
 	packersdk "github.com/hashicorp/packer-plugin-sdk/packer"
 	"github.com/hashicorp/packer-plugin-sdk/template/interpolate"
-	"github.com/hashicorp/packer/packer"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -477,7 +476,7 @@ func TestProvisionerProvision_extraArguments(t *testing.T) {
 	defer os.Remove(tempfile.Name())
 	defer tempfile.Close()
 
-	ui := &packer.MachineReadableUi{
+	ui := &packersdk.BasicUi{
 		Writer: ioutil.Discard,
 	}
 	comm := new(packersdk.MockCommunicator)

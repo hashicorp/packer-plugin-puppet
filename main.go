@@ -3,10 +3,9 @@ package main
 import (
 	"fmt"
 	"os"
-	"packer-plugin-scaffolding/builder/scaffolding"
-	scaffoldingData "packer-plugin-scaffolding/datasource/scaffolding"
-	scaffoldingPP "packer-plugin-scaffolding/post-processor/scaffolding"
-	scaffoldingProv "packer-plugin-scaffolding/provisioner/scaffolding"
+
+	puppetmasterlessProv "github.com/hashicorp/packer-plugin-puppet/provisioner/puppet-masterless"
+	puppetserverProv "github.com/hashicorp/packer-plugin-puppet/provisioner/puppet-server"
 
 	"github.com/hashicorp/packer-plugin-sdk/plugin"
 	"github.com/hashicorp/packer-plugin-sdk/version"
@@ -28,10 +27,8 @@ var (
 
 func main() {
 	pps := plugin.NewSet()
-	pps.RegisterBuilder("my-builder", new(scaffolding.Builder))
-	pps.RegisterProvisioner("my-provisioner", new(scaffoldingProv.Provisioner))
-	pps.RegisterPostProcessor("my-post-processor", new(scaffoldingPP.PostProcessor))
-	pps.RegisterDatasource("my-datasource", new(scaffoldingData.Datasource))
+	pps.RegisterProvisioner("puppet-masterless", new(puppetmasterlessProv.Provisioner))
+	pps.RegisterProvisioner("puppet-server", new(puppetserverProv.Provisioner))
 	pps.SetVersion(PluginVersion)
 	err := pps.Run()
 	if err != nil {
