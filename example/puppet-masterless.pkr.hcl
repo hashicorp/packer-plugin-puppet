@@ -5,6 +5,10 @@ packer {
       source  = "github.com/hashicorp/docker"
       version = ">=0.0.7"
     }
+    puppet = {
+      source  = "github.com/hashicorp/puppet"
+      version = ">=0.0.2"
+    }
   }
 }
 
