@@ -27,8 +27,8 @@ var (
 
 func main() {
 	pps := plugin.NewSet()
-	pps.RegisterProvisioner("puppet-masterless", new(puppetmasterlessProv.Provisioner))
-	pps.RegisterProvisioner("puppet-server", new(puppetserverProv.Provisioner))
+	pps.RegisterProvisioner("masterless", new(puppetmasterlessProv.Provisioner))
+	pps.RegisterProvisioner("server", new(puppetserverProv.Provisioner))
 	pps.SetVersion(PluginVersion)
 	err := pps.Run()
 	if err != nil {
