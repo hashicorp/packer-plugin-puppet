@@ -8,3 +8,6 @@ require (
 	github.com/stretchr/testify v1.7.0
 	github.com/zclconf/go-cty v1.8.3
 )
+
+// Incorrect plugin registration for puppet provisioners; see hashicorp/packer-plugin-puppet/pull/11
+retract v0.0.1
