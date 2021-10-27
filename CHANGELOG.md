@@ -1,3 +1,8 @@
+## 1.0.1 (October 27, 2021)
+
+* Update packer-plugin-sdk to v0.2.7 [GH-22]
+* Update to use Go 1.17
+
 ## 1.0.0 (June 14, 2021)
 The code base for this plugin has been stable since the Packer core split.
 We are marking this plugin as v1.0.0 to indicate that it is stable and ready for consumption via `packer init`.
